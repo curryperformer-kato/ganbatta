@@ -1,0 +1,30 @@
+body {
+  background-color: #f5f8fa;
+  padding-top: 70px;
+  text-align: center;
+}
+
+.navbar-default {
+  background-color: #305097;
+  border-color: black;
+}
+
+.navbar-default {
+  .navbar-brand {
+    color: #ffffff;
+  }
+  .navbar-nav > li > a {
+    color: #ffffff;
+  }
+  .navbar-text {
+    color: #ffffff;
+    a {
+      color: #ffffff;
+    }
+  }
+}
+
+.flash{
+  color: black;
+  padding-top: 10px;
+}

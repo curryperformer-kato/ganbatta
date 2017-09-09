@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@topic)do |f| %>
+        <%= f.error_messages! %>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+        <br>
+        <%= f.label :content %>
+        <%= f.text_field :content, class: 'form-control' %>
+        <br>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+        <%= f.hidden_field :image_cache %>
+        <br>
+        <%= f.submit '登録する', class: 'btn btn-primary btn-md' %>
+      <% end %>
+      <br>
+      <%= link_to "投稿一覧", topics_path, class: 'btn btn-success btn-md' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+.wrapper {
+  margin-top: 0px;
+  margin-bottom: 70px;
+  padding: 0px 20px 20px 35px;
+
+  .content_box {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0px;
+    text-align: left;
+    word-wrap: break-word;
+    .icon {
+      width: 70px;
+      height: 70px;
+      margin: auto;
+    }
+    .icon_name{
+      margin: auto;
+    }
+    .icons{
+      padding: 1px;
+      margin: 1px;
+      border-bottom: 1px solid #ccc;
+    }
+    .icon_box {
+      padding: 10px;
+      margin: 10px;
+    }
+    .text_box{
+      margin: 10px 0px;
+    }
+    .picture_box{
+      padding: 0;
+      margin: auto auto 20px auto;
+      text-align: center;
+    }
+    img{
+      border: 1px solid #ccc;
+    }
+  }
+}
+
+.form-control{
+  margin: 0px 0px 10px 0px;
+}
+
+.index_box{
+  margin-top: 10px;
+}
+.my_mini_box{
+  margin-top: 10px;
+  padding: 10px 20px 10px 10px;
+}
+.users_box{
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.user_mini_box{
+  margin: auto 10px;
+  padding: 10px 20px 10px 10px;
+  border-bottom: 1px solid #ccc;
+}
+.icon {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+}
+.icon_field{
+  margin: 20px auto;
+  width: 100px;
+  height: 100px;
+}
+

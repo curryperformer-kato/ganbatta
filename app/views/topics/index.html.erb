@@ -1,0 +1,47 @@
+<div class ="container" >
+  <div class="row">
+    <%= notice %>
+    <br>
+    <%= link_to "新規投稿", new_topic_path, class: 'btn btn-default btn-md' %>
+  </div>
+  <div class="row index_box">
+    <div class="wrapper mine col-md-3">
+      <%= render 'shared/my_form' %>
+    </div>
+    <div class="wrapper col-md-6">
+      <% @topics.each do |topic| %>
+      <div class="content_box" >
+        <div class="row icons">
+          <div class="icon col-md-4">
+            <%= profile_img(topic.user) if profile_img(topic.user) %>
+          </div>
+          <div class="icon_name col-md-8">
+            <h4><%= topic.user.name %><%= "NO_NAME" if topic.user.name.blank? %></h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="text_box col-md-12">
+            <%= link_to topic_path(topic) do %>
+              <h3><strong><%= topic.title %></strong></h3>
+            <% end %>
+            <p><%= topic.content %></p>
+          </div>
+        </div>
+        <div class ="picture_box" >
+          <% if topic.image? %>
+            <%= image_tag(topic.image) %>
+          <% else %>
+            <%= image_tag('no_image.png') %>
+          <% end %>
+        </div>
+        <%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
+        <%= link_to "削除", topic_path(topic.id), method: :delete, data: {confirm: "本当に削除してもいいですか？" }, class: 'btn btn-default btn-sm btn-danger' %>
+      </div>
+      <% end %>
+    </div>
+    <div class="wrapper users col-md-3">
+      <%= render 'shared/users_form' %>
+    </div>
+  </div>
+</div>
+
