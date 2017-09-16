@@ -34,10 +34,10 @@
             <%= image_tag('no_image.png') %>
           <% end %>
         </div>
-        <% if current_user.id == comment.user.id %>
-         <%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
-         <%= link_to "削除", topic_path(topic.id), method: :delete, data: {confirm: "本当に削除してもいいですか？" }, class: 'btn btn-default btn-sm btn-danger' %>
-        <% end %>
+          <% if current_user.id == topic.user.id %>
+            <%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
+            <%= link_to "削除", topic_path(topic.id), method: :delete, data: {confirm: "本当に削除してもいいですか？" }, class: 'btn btn-default btn-sm btn-danger' %>
+          <% end %>
       </div>
       <% end %>
     </div>
