@@ -1,0 +1,22 @@
+<div class="users_box">
+<h4>知り合いかも</h4>
+<% @users.each do |user| %>
+  <% if user.id != current_user.id %>
+  <div class="row user_mini_box">
+    <div class="col-md-2">
+    <div class="icon">
+      <%= profile_img(user) %>
+    </div>
+    </div>
+    <div class="col-md-10">
+    <%= link_to user_path(user.id) do %>
+      <h5><%= user.name %></h5>
+      <% if user.name.blank? %>
+        <h5>NO_NAME</h5>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+</div>

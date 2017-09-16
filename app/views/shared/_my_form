@@ -1,0 +1,15 @@
+<div class="row my_mini_box">
+  <div class="col-md-3">
+  <div class="icon">
+    <%= profile_img(current_user) %>
+  </div>
+  </div>
+  <div class="col-md-9">
+  <%= link_to user_path(current_user.id) do %>
+    <h5><%= current_user.name %></h5>
+    <% if current_user.name.blank? %>
+      <h5>NO_NAME</h5>
+    <% end %>
+  <% end %>
+  </div>
+</div>
