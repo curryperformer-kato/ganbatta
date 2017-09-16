@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <h2>ユーザー詳細</h2>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <% if @user.name.present? %>
+        <h4><%= @user.name %>がフォロー中</h4>
+      <% else %>
+        <h4>NO_NAMEがフォロー中</h4>
+      <% end %>
+      <% @user.followed_users.each do |user| %>
+      <div class="row user_box">
+        <div class="col-md-4">
+        <div class="icon">
+        	<%= profile_img(user) %>
+        </div>
+        </div>
+        <div class="col-md-8">
+          <h4><%= user.name %></h4>
+          <% if user.name.blank? %>
+            <h4>NO_NAME</h4>
+          <% end %>
+        <h6><%= user.email %></h6>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <% if @user.name.present? %>
+        <h4><%= @user.name %>のフォロワー</h4>
+      <% else %>
+        <h4>NO_NAMEのフォロワー</h4>
+      <% end %>
+      <% @user.followers.each do |user| %>
+      <div class="row user_box">
+        <div class="col-md-4">
+        <div class="icon">
+        	<%= profile_img(user) %>
+        </div>
+        </div>
+        <div class="col-md-8">
+          <h4><%= user.name %></h4>
+          <% if user.name.blank? %>
+            <h4>NO_NAME</h4>
+          <% end %>
+        <h6><%= user.email %></h6>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+　<br>
+  <%= link_to 'ユーザー一覧', users_path, class: 'btn btn-primary btn-md' %>
+  <br>
+  <br>
+  <%= link_to '投稿一覧', topics_path, class: 'btn btn-default btn-md' %>
+</div>
