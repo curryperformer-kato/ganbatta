@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       if @comment.save
         flash.now[:notice] = 'コメントを投稿しました！'
         format.html { redirect_to topic_path(@topic) }
-        format.json { render :show, status: :created, location: @comment}
+        format.js { render :show, status: :created, location: @comment}
         format.js { render :index }
         unless @comment.topic.user_id == current_user.id
           Pusher.trigger("user_#{@comment.topic.user_id}_channel", 'comment_created', {
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
         })
       else
         format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
