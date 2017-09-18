@@ -10,7 +10,7 @@
   <% if user_signed_in? %>
     <script>
       var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
-      　cluster: "ap1",
+      　cluster: 'ap1',
       　encrypted: true
       });
 
@@ -75,6 +75,10 @@
   </header>
 
 <%= yield %>
+
+  <footer>
+    <p>このアプリはDIVE INTO CODEの課題です</p>
+  </footer>
 
 </body>
 </html>
