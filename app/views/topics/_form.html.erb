@@ -11,13 +11,13 @@
               <tr>
                  <th>タスク名</th>
               </tr>
-              <%= f.nested_fields_for :tasktypes, wrapper_tag: :tr do |q| %>
+              <%= f.nested_fields_for :tasks, wrapper_tag: :tr do |q| %>
                   <td><%= q.text_field :task_name, class: 'form-control' %></td>
                   <td><%= q.remove_nested_fields_link '削除', class: 'btn btn-danger', role: 'button' %></td>
               <% end %>
             </tbody>
         </table>
-        <%= f.add_nested_fields_link :tasktypes, 'タスクを追加', class: 'btn btn-primary', role: 'button' %>
+        <%= f.add_nested_fields_link :tasks, 'タスクを追加', class: 'btn btn-primary', role: 'button' %>
         <br>
         <%= f.label :image %>
         <%= f.file_field :image %>
