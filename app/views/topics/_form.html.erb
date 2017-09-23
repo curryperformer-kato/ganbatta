@@ -10,6 +10,7 @@
             <tbody>
               <tr>
                  <th>タスク名</th>
+                 <th>削除</th>
               </tr>
               <%= f.nested_fields_for :tasks, wrapper_tag: :tr do |q| %>
                   <td><%= q.text_field :task_name, class: 'form-control' %></td>
