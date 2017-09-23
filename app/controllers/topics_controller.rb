@@ -38,7 +38,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @new_comment = @topic.comments.build_from(@topic, current_user.id, "")
+    @new_comment = Comment.build_from(@topic, current_user.id, "")
     @comments = @topic.comments
     Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
   end
