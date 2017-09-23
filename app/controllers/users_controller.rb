@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   protected
 
-  def task_params
+  def topic_params
         params.require(:task).permit(
           :task_name,
           tasktypes_attributes: [:id, :task_name, :_destroy]
