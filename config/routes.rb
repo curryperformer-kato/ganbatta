@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-  resources :topics do
-    resources :comments
-  end
+  
+  resources :topics
+
+  resources :comments
 
   resources :conversations do
     resources :messages
