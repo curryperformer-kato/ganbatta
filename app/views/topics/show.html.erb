@@ -13,7 +13,7 @@
     </div>
     <h3>コメント一覧</h3>
     <div id="comments_area">
-      <%= render partial: "comments/template", locals: {commentable: @topic, new_comment: @comment} %>
+      <%= render partial: "comments/template", locals: {comments: @comments, topic: @topic, new_comment: @comment, commentable: @topic} %>
     </div>
     <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
     <br>
