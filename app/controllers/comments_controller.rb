@@ -1,59 +1,49 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :update, :destroy]
-
   def create
-    @comment = current_user.comments.build(comment_params)
-    @topic = @comment.topic
-    @notification = @comment.notifications.build(user_id: @topic.user.id )
+    commentable = commentable_type.constantize.find(params["comment"]["commentable_id"])
+    @comment = Comment.build_from(commentable, current_user.id, body)
 
     respond_to do |format|
       if @comment.save
-        flash.now[:notice] = 'コメントを投稿しました！'
-        format.html { redirect_to topic_path(@topic) }
-        format.json { render :show, status: :created, location: @comment}
-        format.js { render :index }
-        unless @comment.topic.user_id == current_user.id
-          Pusher.trigger("user_#{@comment.topic.user_id}_channel", 'comment_created', {
-            message: 'あなたの作成したトピックにコメントが付きました'
-          })
-        end
-        Pusher.trigger("user_#{@comment.topic.user_id}_channel", 'notification_created', {
-          unread_counts: Notification.where(user_id: @comment.topic.user.id, read: false).count
-        })
+        make_child_comment
+        format.html  { redirect_to(:back, :notice => 'Comment was successfully added.') }
       else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.html  { render :action => "new" }
       end
     end
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
     @comment.destroy
     respond_to do |format|
-      flash.now[:notice] = 'コメントを削除しました！'
-      format.js { render :index }
+      format.html { redirect_to(:back, notice => 'コメントが削除されました。') }
     end
   end
-
-  def edit
-  end
-
-  def update
-    @topic = @comment.topic
-    if @comment.update(comment_params)
-      redirect_to topic_path(@topic), notice: 'コメントを編集しました！'
-    else
-      render 'edit'
-    end
-  end
-
 
   private
-    def comment_params
-      params.require(:comment).permit(:topic_id, :content)
-    end
 
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
+  def comment_params
+    params.require(:comment).permit(:body, :commentable_id, :commentable_type, :comment_id)
+  end
+
+  def commentable_type
+    comment_params[:commentable_type]
+  end
+
+  def comment_id
+    comment_params[:comment_id]
+  end
+
+  def body
+    comment_params[:body]
+  end
+
+  def make_child_comment
+    return "" if comment_id.blank?
+
+    parent_comment = Comment.find comment_id
+    @comment.move_to_child_of(parent_comment)
+  end
+
 end

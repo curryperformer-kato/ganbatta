@@ -38,9 +38,8 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @comment = @topic.comments.build #入力フォーム
-    @comments = @topic.comments #コメント一覧
-    Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
+    @profile = Profile.find(params[:id])
+    @new_comment = Comment.build_from(@profile, current_user.id, "")
   end
 
   private
