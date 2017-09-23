@@ -38,8 +38,8 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
-    @new_comment = Comment.build_from(@profile, current_user.id, "")
+    @topic = Topic.find(params[:id])
+    @new_comment = Comment.build_from(@topic, current_user.id, "")
   end
 
   private
