@@ -38,7 +38,6 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
     @new_comment = Comment.build_from(@topic, current_user.id, "")
   end
 
