@@ -42,7 +42,7 @@
 
     		<div class="collapse navbar-collapse" id="navbarEexample8">
     			<ul class="nav navbar-nav">
-    				<li><%= link_to '投稿一覧', topics_path %></li>
+    				<li><%= link_to '頑張ったこと一覧', topics_path %></li>
             <% if user_signed_in? %>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
               <li><%= link_to 'マイページ', edit_user_registration_path %></li>
@@ -64,9 +64,9 @@
             <% if user_signed_in? && current_user.name.present? %>
               ようこそ <%= current_user.name %> さん！
             <% elsif user_signed_in? && current_user.name.blank?  %>
-              ようこそ Anonymous_Crasy_Face さん！
+              ようこそ 頑張り屋 さん！
             <% else %>
-              ようこそ ブサイク さん！
+              ようこそ ゲスト さん！
             <% end %>
           </p>
     		</div>
