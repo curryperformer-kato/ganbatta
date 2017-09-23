@@ -9,11 +9,11 @@ class ActsAsCommentableWithThreadingMigration < ActiveRecord::Migration
       t.integer :user_id, :null => false
       t.integer :parent_id, :lft, :rgt
       t.timestamps
+      t.references :user, index: true, foreign_key: true
+      t.references :topic, index: true, foreign_key: true
     end
 
     add_index :comments, :user_id
     add_index :comments, [:commentable_id, :commentable_type]
-    t.references :user, index: true, foreign_key: true
-    t.references :topic, index: true, foreign_key: true
   end
 end
