@@ -6,8 +6,18 @@
         <%= f.label :title %>
         <%= f.text_field :title, class: 'form-control' %>
         <br>
-        <%= f.label :content %>
-        <%= f.text_field :content, class: 'form-control' %>
+        <table class="table table-striped table-bordered table-hover">
+            <tbody>
+              <tr>
+                 <th>タスク名</th>
+              </tr>
+              <%= f.nested_fields_for :tasktypes, wrapper_tag: :tr do |q| %>
+                  <td><%= q.text_field   :task_name,     class: 'form-control' %></td>
+                  <td><%= q.remove_nested_fields_link '削除', class: 'btn btn-danger', role: 'button' %></td>
+              <% end %>
+          </tbody>
+        </table>
+        <%= f.add_nested_fields_link :tasktypess, 'タスクを追加', class: 'btn btn-primary', role: 'button' %>
         <br>
         <%= f.label :image %>
         <%= f.file_field :image %>

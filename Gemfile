@@ -32,7 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'therubyracer', platforms: :ruby
-gem 'acts_as_commentable_with_threading'
+gem 'nested_form_fields'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
