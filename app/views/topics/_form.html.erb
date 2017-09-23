@@ -14,13 +14,13 @@
                  <th>削除</th>
               </tr>
               <%= f.nested_fields_for :tasks, wrapper_tag: :tr do |q| %>
-                  <td><%= ff.text_field :task_name, class: 'form-control' %></td>
-                  <td><%= ff.text_field :memo, class: 'form-control' %></td>
-                  <td><%= ff.remove_nested_fields_link '削除', class: 'btn btn-danger', role: 'button' %></td>
+                  <td><%= f.text_field :task_name, class: 'form-control' %></td>
+                  <td><%= f.text_field :memo, class: 'form-control' %></td>
+                  <td><%= f.remove_nested_fields_link '削除', class: 'btn btn-danger', role: 'button' %></td>
               <% end %>
             </tbody>
         </table>
-        <%= ff.add_nested_fields_link :tasks, '追加', class: 'btn btn-primary', role: 'button' %>
+        <%= f.add_nested_fields_link :tasks, '追加', class: 'btn btn-primary', role: 'button' %>
         <br>
         <%= f.label :image %>
         <%= f.file_field :image %>
