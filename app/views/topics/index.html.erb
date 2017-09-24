@@ -26,15 +26,6 @@
             <% end %>
           </div>
         </div>
-      <div class="content_box" >
-        <div class="row icons">
-          <div class="icon col-md-4">    
-            <% @topic.each do |topic| %>
-              <p><%= topic.user.task.name %></p>
-              <p><%= topic.user.task.memo %></p>
-            <% end %>
-          </div>
-        </div>
         <div class ="picture_box" >
           <% if topic.image? %>
             <%= image_tag(topic.image) %>
