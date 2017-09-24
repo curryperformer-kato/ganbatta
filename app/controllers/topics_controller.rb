@@ -5,6 +5,7 @@ class TopicsController < ApplicationController
   def index
     @topics = Topic.all
     @users = User.all
+    @tasks = Task.all
   end
 
   def new
