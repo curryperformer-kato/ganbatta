@@ -10,6 +10,8 @@
       </p>
     </div>
     <% if current_user.id == @topic.user_id %>
+    　<p class="left"><%= @topic.task.name %></p>
+    　<p class="left"><%= @topic.task.memo %></p>
       <%= link_to '頑張ったこと編集', edit_topic_path(@topic), class: 'btn btn-success btn-md' %>
     <% end %>
     <br>
