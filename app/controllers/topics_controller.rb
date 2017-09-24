@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topics_params) #render 'new'に変数を渡すため
     @topic.user_id = current_user.id
     if @topic.save
-      redirect_to topics_path, notice: "トピックを作成しました！"
+      redirect_to topics_path, notice: "頑張ったことを作成しました！"
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class TopicsController < ApplicationController
 
   def update
     if @topic.update(topics_params)
-      redirect_to topics_path, notice: "トピックを編集しました！"
+      redirect_to topics_path, notice: "頑張ったことを編集しました！"
     else
       render 'edit'
     end
@@ -34,7 +34,7 @@ class TopicsController < ApplicationController
 
   def destroy
     @topic.destroy
-    redirect_to topics_path, notice: "トピックを削除しました！"
+    redirect_to topics_path, notice: "頑張ったことを削除しました！"
   end
 
   def show
