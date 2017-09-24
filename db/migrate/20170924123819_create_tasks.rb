@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :task_id 
       t.string :name
       t.string :memo
+      t.references :topic, index: true, foreign_key: true
 
       t.timestamps null: false
     end
