@@ -24,8 +24,14 @@
             <%= link_to topic_path(topic) do %>
               <h3><strong><%= topic.title %></strong></h3>
             <% end %>
-            <p><%= topic.task.name %></p>
-            <p><%= topic.task.memo %></p>
+          </div>
+        </div>
+      <% @tasks.each do |task| %>
+      <div class="content_box" >
+        <div class="row icons">
+          <div class="icon col-md-4">
+            <p><%= task.name %></p>
+            <p><%= task.memo %></p>
           </div>
         </div>
         <div class ="picture_box" >
