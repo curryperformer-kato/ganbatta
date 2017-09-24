@@ -39,7 +39,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @task = @topic.all
+    @tasks = Task.all
   end
 
   private
