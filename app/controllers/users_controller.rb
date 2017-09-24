@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :task_params
 
   def index
     @users = User.all
