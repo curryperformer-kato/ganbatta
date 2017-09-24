@@ -9,8 +9,9 @@
         <table class="table table-striped table-bordered table-hover">
           <tbody>
             <tr>
-               <th>お部屋タイプ名</th>
-               <th>定員人数</th>
+               <th>頑張ったこと名</th>
+               <th>詳細</th>
+             　 <th>削除</th>
             </tr>
             <%= f.nested_fields_for :tasks, wrapper_tag: :tr do |q| %>
                 <td><%= q.text_field :name, class: 'form-control' %></td>
