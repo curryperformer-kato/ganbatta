@@ -11,15 +11,8 @@
         <%= @topic.created_at.strftime("%m月%d日 %p %l:%M") %>
       </p>
     </div>
-    <!-- <h3>コメント一覧</h3>
-    <div id="comments_area">
-      <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
-    </div>
-    <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
-    <br>
-    <br> -->
     <% if current_user.id == @topic.user_id %>
-      <%= link_to 'トピック編集', edit_topic_path(@topic), class: 'btn btn-success btn-md' %>
+      <%= link_to '頑張ったこと編集', edit_topic_path(@topic), class: 'btn btn-success btn-md' %>
     <% end %>
     <br>
     <br>
