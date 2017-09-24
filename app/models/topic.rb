@@ -4,6 +4,5 @@ class Topic < ActiveRecord::Base
   accepts_nested_attributes_for :tasks, allow_destroy: true
   has_many :comments, dependent: :destroy
   validates :title, presence: true
-  validates :content, presence: true
   mount_uploader :image, ImageUploader
 end

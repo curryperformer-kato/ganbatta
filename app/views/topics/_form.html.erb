@@ -16,11 +16,11 @@
             <%= f.nested_fields_for :tasks, wrapper_tag: :tr do |q| %>
                 <td><%= q.text_field :name, class: 'form-control' %></td>
                 <td><%= q.text_field :memo, class: 'form-control' %></td>
-                <td><%= q.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %></td>
+                <td><%= q.remove_nested_fields_link '削除', class: 'btn btn-danger', role: 'button' %></td>
             <% end %>
         </tbody>
       </table>
-      <%= f.add_nested_fields_link :tasks, 'Add new', class: 'btn btn-primary', role: 'button' %>
+      <%= f.add_nested_fields_link :tasks, '追加', class: 'btn btn-primary', role: 'button' %>
         <br>
         <%= f.label :image %>
         <%= f.file_field :image %>
@@ -29,7 +29,7 @@
         <%= f.submit '登録する', class: 'btn btn-primary btn-md' %>
       <% end %>
       <br>
-      <%= link_to "投稿一覧", topics_path, class: 'btn btn-success btn-md' %>
+      <%= link_to "頑張ったこと一覧", topics_path, class: 'btn btn-success btn-md' %>
     </div>
   </div>
 </div>
