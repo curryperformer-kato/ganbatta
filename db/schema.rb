@@ -11,26 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924123818) do
+ActiveRecord::Schema.define(version: 20170924123820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.string   "title"
-    t.text     "body"
-    t.string   "subject"
-    t.integer  "user_id",          null: false
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "comments", ["topic_id"], name: "index_comments_on_topic_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "conversations", force: :cascade do |t|
@@ -74,13 +68,23 @@ ActiveRecord::Schema.define(version: 20170924123818) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "memo"
+    t.integer  "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tasks", ["topic_id"], name: "index_tasks_on_topic_id", using: :btree
+
   create_table "topics", force: :cascade do |t|
     t.string   "title"
-    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "image"
     t.integer  "user_id"
+    t.integer  "task_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -113,8 +117,11 @@ ActiveRecord::Schema.define(version: 20170924123818) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
+  add_foreign_key "comments", "topics"
+  add_foreign_key "comments", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "notifications", "comments"
   add_foreign_key "notifications", "users"
+  add_foreign_key "tasks", "topics"
 end
