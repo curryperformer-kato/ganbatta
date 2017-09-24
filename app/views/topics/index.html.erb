@@ -30,8 +30,8 @@
           <div class="row icons">
             <div class="icon col-md-4">    
               <% @topic.each do |topic| %>
-                <p><%= topic.name %></p>
-                <p><%= topic.memo %></p>
+                <p><%= topic.task.name %></p>
+                <p><%= topic.task.memo %></p>
               <% end %>
             </div>
           </div>
