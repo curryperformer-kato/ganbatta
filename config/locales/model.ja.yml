@@ -1,12 +1,13 @@
 ja:
   activerecord:
     models:
-      topic: "記事"
+      topic: "頑張ったこと"
       user: "ユーザー"
     attributes:
       topic:
         title: "タイトル"
-        content: "内容"
+        name: "頑張ったこと名"
+        note: "詳細"
         image: "画像"
       user:
         title: "タイトル"

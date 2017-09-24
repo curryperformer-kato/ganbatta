@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-    validates :name, presence: true
-    validates :memo, presence: true
+    validates :name
+    validates :memo
     belongs_to :topic
 end
