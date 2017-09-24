@@ -39,7 +39,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
+    @task = @topic.all
   end
 
   private
