@@ -29,9 +29,9 @@
       <div class="content_box" >
         <div class="row icons">
           <div class="icon col-md-4">    
-            <% @tasks.each do |task| %>
-              <p><%= task.name %></p>
-              <p><%= task.memo %></p>
+            <% @topic.each do |topic| %>
+              <p><%= topic.user.task.name %></p>
+              <p><%= topic.user.task.memo %></p>
             <% end %>
           </div>
         </div>
