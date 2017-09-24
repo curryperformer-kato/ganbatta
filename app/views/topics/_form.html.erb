@@ -13,7 +13,7 @@
                <th>詳細</th>
              　 <th>削除</th>
             </tr>
-            <%= f.nested_fields_for :topics, wrapper_tag: :tr do |q| %>
+            <%= f.nested_fields_for :tasks, wrapper_tag: :tr do |q| %>
                 <td><%= q.text_field :name, class: 'form-control' %></td>
                 <td><%= q.text_field :memo, class: 'form-control' %></td>
                 <td><%= q.remove_nested_fields_link '削除', class: 'btn btn-danger', role: 'button' %></td>
