@@ -9,8 +9,8 @@
         <%= @topic.created_at.strftime("%m月%d日 %p %l:%M") %>
       </p>
     </div>
-      <p class="left"><%= @tasks.name %></p>
-    　<p class="left"><%= @tasks.memo %></p>
+      <p class="left"><%= @topic.name %></p>
+    　<p class="left"><%= @topic.memo %></p>
     <% if current_user.id == @topic.user_id %>
       <%= link_to '頑張ったこと編集', edit_topic_path(@topic), class: 'btn btn-success btn-md' %>
     <% end %>
