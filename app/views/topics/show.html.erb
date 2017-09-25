@@ -9,7 +9,7 @@
         <%= @topic.created_at.strftime("%m月%d日 %p %l:%M") %>
       </p>
     </div>
-        <% topic.tasks.each do |task| %>
+        <% @topic.tasks.each do |task| %>
           <p><%= task.name %></p>
           <p><%= task.memo %></p>
         <% end %>
