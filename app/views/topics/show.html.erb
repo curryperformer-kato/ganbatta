@@ -2,19 +2,18 @@
 <div class="child row">
   <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
     <div class="topic-text">
-      <p class="left">
+      <div class="left">
         <strong>日付:</strong>
-        <%= @topic.title %></p>
-      <p class="left">
+        <%= @topic.title %>
         <strong>作成時間:</strong>
         <%= @topic.created_at.strftime("%m月%d日 %p %l:%M") %>
-      </p>
-    </div>
-      <p class="left">
+        <strong>頑張ったこと:</strong>
         <% @topic.tasks.each do |task| %>
-          <%= task.name %>
-          <%= task.memo %></p>
+          <p><%= task.name %></p>
+          <p><%= task.memo %></p>
         <% end %>
+　　　</div>
+　　</div>
     <% if current_user.id == @topic.user_id %>
       <%= link_to '頑張ったこと編集', edit_topic_path(@topic), class: 'btn btn-success btn-md' %>
     <% end %>
