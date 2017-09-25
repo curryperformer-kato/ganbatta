@@ -5,8 +5,10 @@
       <div class="left">
         <p><strong>日付:</strong>
         <%= @topic.title %></p>
+        <br>
         <p><strong>作成時間:</strong>
         <%= @topic.created_at.strftime("%m月%d日 %p %l:%M") %></p>
+        <br>
         <p><strong>頑張ったこと:</strong></p>
         <% @topic.tasks.each do |task| %>
           <p><%= task.name %></p>
