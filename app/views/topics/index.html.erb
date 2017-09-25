@@ -28,10 +28,10 @@
         </div>
         <div class="content_box" >
           <div class="row icons">
-            <div class="icon col-md-4">    
-              <% @topics.each do |topic| %>
-                <p><%= topic.name %></p>
-                <p><%= topic.memo %></p>
+            <div class="icon col-md-4"> 
+              <% @topic.tasks.each do |task| %>
+                <p><%= task.name %></p>
+                <p><%= task.memo %></p>
               <% end %>
             </div>
           </div>
