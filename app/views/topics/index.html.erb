@@ -26,15 +26,10 @@
             <% end %>
           </div>
         </div>
-        <div class="content_box" >
-          <div class="row icons">
-            <div class="icon col-md-8"> 
               <% topic.tasks.each do |task| %>
                 <p><%= task.name %></p>
                 <p><%= task.memo %></p>
               <% end %>
-            </div>
-          </div>
         <div class ="picture_box" >
           <% if topic.image? %>
             <%= image_tag(topic.image) %>
