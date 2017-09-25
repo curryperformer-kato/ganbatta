@@ -3,11 +3,11 @@
   <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
     <div class="topic-text">
       <div class="left">
-        <strong>日付:</strong>
-        <%= @topic.title %>
-        <strong>作成時間:</strong>
-        <%= @topic.created_at.strftime("%m月%d日 %p %l:%M") %>
-        <strong>頑張ったこと:</strong>
+        <p><strong>日付:</strong>
+        <%= @topic.title %></p>
+        <p><strong>作成時間:</strong>
+        <%= @topic.created_at.strftime("%m月%d日 %p %l:%M") %></p>
+        <p><strong>頑張ったこと:</strong></p>
         <% @topic.tasks.each do |task| %>
           <p><%= task.name %></p>
           <p><%= task.memo %></p>
