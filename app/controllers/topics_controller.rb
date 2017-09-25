@@ -43,7 +43,7 @@ class TopicsController < ApplicationController
 
   private
     def topics_params
-      params.require(:topic).permit(:title, :content, :image)
+      params.require(:topic).permit(:title, :content, :image, tasks_attributes: [:name, :memo, :id])
     end
 
     def set_topic
